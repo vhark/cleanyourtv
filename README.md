@@ -1,3 +1,21 @@
+# CleanYourTV — multi-platform community fork
+
+This is an independent fork of [Gathin23/CleanYourTV](https://github.com/Gathin23/cleanyourtv),
+not the upstream project or its official website. Original authorship, license,
+Android tools and model reports are preserved below.
+
+**Start with [the multi-platform guide](MULTIPLATFORM.md)** before enabling any
+TV developer mode. It routes by operating system rather than brand, with an
+offline capability planner and optional read-only Samsung/Roku identification.
+[Platform guides](docs/platforms/README.md) distinguish existing Android cleanup,
+manual settings, documented local control and unsupported features. **Coverage is
+not a claim that every TV can be debloated, rooted or given a new launcher.**
+New inspection code has fixture tests, not TV hardware acceptance.
+
+[Coverage roadmap](docs/coverage-roadmap.md) · [Upstream Android workflow](PROMPT.md)
+
+---
+
 <p align="center">
   <a href="https://cleanyour.tv"><img src="https://raw.githubusercontent.com/Gathin23/cleanyourtv/main/docs/banner.png" alt="CleanYourTV. Your TV, minus the ads. Strip the bloatware from any Android TV or Google TV over Wi-Fi and replace the ad-filled home screen with a clean launcher that looks like an Apple TV. No root, no cable, nothing uninstalled, and a one-line restore." width="800"></a>
 </p>
@@ -466,6 +484,7 @@ tools/theme.sh themes/aurora                                 # push a theme; --r
 | [`tools/adb-closed.py`](tools/adb-closed.py) | Checks that the TV's network ADB port is closed once debugging is off: exits 0 when nothing answers, 1 while it is still open, 2 when the check itself could not run. No `nc` needed. |
 | [`tools/privacy.py`](tools/privacy.py) | Audits the TV for voice, ACR and telemetry candidates and prints the evidence for each; `--write` turns the findings into a list `disable.sh` and `restore.sh` already understand. |
 | [`tools/theme.sh`](tools/theme.sh) | Push a folder from [`themes/`](themes/) to the launcher and restart Home. |
+| [`tools/platforms.py`](tools/platforms.py) | Fork extension: offline OS-aware coverage plans and separately approved read-only Samsung/Roku metadata inspection. No cleanup, pairing, remote keys or discovery; [start here](MULTIPLATFORM.md). |
 | [`tools/manage.py`](tools/manage.py) | List every add-on, theme and switch with its screenshot, see what is on the TV, and install, update or remove one by running its creator's own script. |
 | [`tools/bench.py`](tools/bench.py) | Measures the launcher that answers HOME: key latency, how far the focus moved, janky frames, cold start, return to Home, and the idle CPU and PSS it costs. Changes nothing on the TV and writes the raw per-key numbers to JSON; no extra install. |
 | [`tools/trace.py`](tools/trace.py), [`trace_report.py`](tools/trace_report.py) | Records Perfetto traces of the launcher (return to Home, cold start, D-pad) and reports where its time goes, per run and before against after. Optional: needs [`requirements-perf.txt`](tools/requirements-perf.txt). [Guide](tools/trace.md). |
